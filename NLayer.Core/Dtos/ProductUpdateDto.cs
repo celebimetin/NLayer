@@ -1,12 +1,11 @@
-﻿namespace NLayer.Core.Entities
+﻿namespace NLayer.Core.Dtos
 {
-    public class Product : BaseEntity
+    public class ProductUpdateDto
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public int Stock { get; set; }
         public decimal Price { get; set; }
         public int CategoryId { get; set; }
-        public Category Category { get; set; }
-        public ProductFeature Feature { get; set; }
     }
 }
