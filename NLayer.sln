@@ -5,15 +5,20 @@ VisualStudioVersion = 17.5.33209.295
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLayer.Core", "NLayer.Core\NLayer.Core.csproj", "{C35D2BF0-CD7C-4AB5-9A9B-FB456E247AC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLayer.Repository", "NLayer.Repository\NLayer.Repository.csproj", "{A989FCDA-A949-4426-9EAB-34EE29000EED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLayer.Repository", "NLayer.Repository\NLayer.Repository.csproj", "{A989FCDA-A949-4426-9EAB-34EE29000EED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLayer.Services", "NLayer.Services\NLayer.Services.csproj", "{14C5FB39-05BD-462D-9DBA-829158B8FE69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLayer.Services", "NLayer.Services\NLayer.Services.csproj", "{14C5FB39-05BD-462D-9DBA-829158B8FE69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLayer.WebAPI", "NLayer.WebAPI\NLayer.WebAPI.csproj", "{8285C019-305D-48FD-BE65-51B839BA94C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLayer.WebAPI", "NLayer.WebAPI\NLayer.WebAPI.csproj", "{8285C019-305D-48FD-BE65-51B839BA94C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLayer.WebApp", "NLayer.WebApp\NLayer.WebApp.csproj", "{2AF5E2C4-90C8-4C1B-9653-100898B8AF55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLayer.WebApp", "NLayer.WebApp\NLayer.WebApp.csproj", "{2AF5E2C4-90C8-4C1B-9653-100898B8AF55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLayer.Caching", "NLayer.Caching\NLayer.Caching.csproj", "{8BCEF0D2-C164-43B3-BBB2-61CDF092B5CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLayer.Caching", "NLayer.Caching\NLayer.Caching.csproj", "{8BCEF0D2-C164-43B3-BBB2-61CDF092B5CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{86B53B4E-7F59-486E-A8FE-BBE0BE268C23}"
+	ProjectSection(SolutionItems) = preProject
+		Ports.txt = Ports.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
