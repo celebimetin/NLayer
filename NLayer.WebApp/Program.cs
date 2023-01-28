@@ -1,23 +1,20 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
-using NLayer.Core.Repositories;
-using NLayer.Core.Services;
-using NLayer.Core.UnitOfWorks;
 using NLayer.Repository;
-using NLayer.Repository.Repositories;
-using NLayer.Repository.UnitOfWorks;
 using NLayer.Services.Mappings;
-using NLayer.Services.Services;
+using NLayer.Services.Validations;
+using NLayer.WebApp.Filters;
+using NLayer.WebApp.Modules;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllersWithViews();
-
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-builder.Services.AddScoped(typeof(IServices<>), typeof(Services<>));
+builder.Services.AddControllersWithViews().AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<ProductDtoValidator>());
 
 builder.Services.AddAutoMapper(typeof(MapProfile));
+builder.Services.AddScoped(typeof(NotFoundFilter<>));
 
 builder.Services.AddDbContext<AppDbContext>(x =>
 {
@@ -28,7 +25,12 @@ builder.Services.AddDbContext<AppDbContext>(x =>
         });
 });
 
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder => containerBuilder.RegisterModule(new RepoServiceModule()));
+
 var app = builder.Build();
+
+app.UseExceptionHandler("/Home/Error");
 
 if (!app.Environment.IsDevelopment())
 {

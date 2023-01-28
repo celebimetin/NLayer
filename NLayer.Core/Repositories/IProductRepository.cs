@@ -1,5 +1,4 @@
-﻿using NLayer.Core.Dtos;
-using NLayer.Core.Models;
+﻿using NLayer.Core.Models;
 
 namespace NLayer.Core.Repositories
 {
