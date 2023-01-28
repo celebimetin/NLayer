@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using NLayer.Core.Dtos;
+using NLayer.Core.Models;
 using NLayer.Core.Services;
 
 namespace NLayer.WebAPI.Controllers
@@ -28,6 +29,14 @@ namespace NLayer.WebAPI.Controllers
         public async Task<IActionResult> GetSingleCategoryByIdWithProductsAsync(int categoryId)
         {
             return CreateActionResult(await _categoryService.GetSingleCategoryByIdWithProductsAsync(categoryId));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Save(CategoryDto categoryDto)
+        {
+            var category = await _categoryService.AddAsync(_mapper.Map<Category>(categoryDto));
+            var categoryDtos = _mapper.Map<CategoryDto>(category);
+            return CreateActionResult(CustomResponseDto<CategoryDto>.Success(201, categoryDtos));
         }
     }
 }
